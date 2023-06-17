@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://bdeperccgie5c"]
+
+[ext_resource type="Script" path="res://Objects/PlayerManager/playerManager.gd" id="1_qu636"]
+[ext_resource type="Script" path="res://Resources/playerData.gd" id="2_bm5ms"]
+[ext_resource type="PackedScene" uid="uid://dcjpaaub4rqlq" path="res://Objects/Player/player.tscn" id="2_cxs44"]
+[ext_resource type="FontFile" uid="uid://dvxdbsqsalf5m" path="res://Fonts/Pepiacjm.ttf" id="4_3157i"]
+
+[sub_resource type="Resource" id="Resource_g6mg3"]
+script = ExtResource("2_bm5ms")
+name = "monke"
+health = 100
+damage = 10
+
+[sub_resource type="Resource" id="Resource_ogj7h"]
+script = ExtResource("2_bm5ms")
+name = "paddyboi"
+health = 100
+damage = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_bsob3"]
+font = ExtResource("4_3157i")
+
+[node name="PlayerManager" type="Node2D"]
+script = ExtResource("1_qu636")
+playerList = Array[ExtResource("2_bm5ms")]([SubResource("Resource_g6mg3"), SubResource("Resource_ogj7h")])
+
+[node name="Player" parent="." instance=ExtResource("2_cxs44")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+theme_override_constants/margin_top = -16
+
+[node name="PlayerLabel" type="Label" parent="MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "temperer monkeerer"
+label_settings = SubResource("LabelSettings_bsob3")
+uppercase = true

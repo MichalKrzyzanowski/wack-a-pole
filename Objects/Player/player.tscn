@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcjpaaub4rqlq"]
+
+[ext_resource type="Script" path="res://Objects/Player/player.gd" id="1_4fx5j"]
+[ext_resource type="Texture2D" uid="uid://d4gbk6naisplq" path="res://Images/poolBallWhite.png" id="2_gbpx4"]
+[ext_resource type="Texture2D" uid="uid://dcbxet5jupiai" path="res://Images/ballOutline.png" id="2_qjacn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x35dv"]
+radius = 3.0
+
+[node name="Player" type="Node2D"]
+z_index = 1
+script = ExtResource("1_4fx5j")
+metadata/_edit_vertical_guides_ = []
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 1.0
+texture = ExtResource("2_gbpx4")
+texture_mode = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+shape = SubResource("CircleShape2D_x35dv")
+max_results = 16
+collision_mask = 6
+
+[node name="GuideLine" type="Line2D" parent="."]
+width = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qjacn")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

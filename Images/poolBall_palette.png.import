@@ -1,0 +1,4 @@
+[deps]
+source_file="res://Images/poolBall_palette.png"
+[params]
+flags/filter=false

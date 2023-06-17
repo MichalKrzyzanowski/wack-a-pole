@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Resources/PoolBall/poolBallRes.gd" id="1_wnpkb"]
+
+[resource]
+resource_local_to_scene = true
+resource_name = "PoolBallRes"
+script = ExtResource("1_wnpkb")
+shadow = Color(0, 0, 0, 1)
+base = Color(0, 0, 0, 1)
+accent = Color(0, 0, 0, 1)

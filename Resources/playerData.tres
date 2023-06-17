@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://buvlf3hwan7ne"]
+
+[ext_resource type="Script" path="res://Resources/playerData.gd" id="1_0s1py"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_0s1py")
