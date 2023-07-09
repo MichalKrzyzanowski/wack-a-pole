@@ -2,14 +2,14 @@
 
 [ext_resource type="Material" uid="uid://c72gpjvxxx7jb" path="res://Materials/PalleteSwap/palleteSwap.tres" id="1_f3r5x"]
 [ext_resource type="Script" path="res://Objects/Ball/ballMovement.gd" id="1_llwcf"]
-[ext_resource type="Script" path="res://Resources/PoolBall/poolBallRes.gd" id="2_bdows"]
+[ext_resource type="Script" path="res://Resources/PoolBall/poolBall.gd" id="3_i04ia"]
 [ext_resource type="Texture2D" uid="uid://d4gbk6naisplq" path="res://Images/poolBallWhite.png" id="3_pmbfr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ge87s"]
 bounce = 1.0
 
-[sub_resource type="Resource" id="Resource_a83uw"]
-script = ExtResource("2_bdows")
+[sub_resource type="Resource" id="Resource_oly45"]
+script = ExtResource("3_i04ia")
 type = 0
 base = Color(0, 0, 0, 1)
 shadow = Color(0, 0, 0, 1)
@@ -33,7 +33,7 @@ contact_monitor = true
 linear_damp = 0.98
 angular_damp = 0.98
 script = ExtResource("1_llwcf")
-ballData = SubResource("Resource_a83uw")
+ballData = SubResource("Resource_oly45")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 use_parent_material = true

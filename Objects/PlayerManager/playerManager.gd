@@ -1,14 +1,17 @@
 extends Node2D
 
-@export var playerList : Array[playerData]
+@export var playerList : Array[PlayerData]
 
 @onready var playerLabel := $MarginContainer/PlayerLabel
 @onready var labelMarginContainer := $MarginContainer
 @onready var player := $Player
 
 var currentPlayer := 0
+var coreManager
+var switchPlayer := false
 
 func _ready() -> void:
+	coreManager = get_parent()
 	GameState.onAllBallsSleeping.connect(Callable(self, "updatePlayer").bind(true))
 	player.onShoot.connect(Callable(self, "updatePlayerLabel").bind(false))
 	updatePlayerLabel()
@@ -20,16 +23,26 @@ selects the next player from the list
 if current player is the last player, cycle back to first player
 """
 func nextPlayer() -> void:
+	if switchPlayer: return
 	currentPlayer = (currentPlayer + 1) % playerList.size()
+
+"""
+performs actions based on potting the ball
+actions include changing player, adding score, etc.
+"""
+func actOnBallPot(ballData: PoolBall):
+	if ballData.checkType(ballData.BallType.WHITE): return
+	prints(ballData.type)
+	switchPlayer = true
 
 """
 update position and text of player label
 """
-func updatePlayerLabel(visible: bool = true) -> void:
+func updatePlayerLabel(setVisible: bool = true) -> void:
 	if player.isPlayerBallPotted(): return
 	labelMarginContainer.global_position = player.playerBall.global_position
 	playerLabel.text = playerList[currentPlayer].name
-	playerLabel.visible = visible
+	playerLabel.visible = setVisible
 
 """
 move to next player and update label
@@ -37,3 +50,4 @@ move to next player and update label
 func updatePlayer(labelVisible: bool = true) -> void:
 	nextPlayer()
 	updatePlayerLabel(labelVisible)
+	switchPlayer = false

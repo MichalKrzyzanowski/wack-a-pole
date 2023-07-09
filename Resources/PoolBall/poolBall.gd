@@ -51,5 +51,5 @@ func setColor(material : ShaderMaterial) -> void:
 """
 ball type == comparison
 """
-func checkType(type : BallType):
-	return self.type == type
+func checkType(ballType : BallType):
+	return self.type == ballType

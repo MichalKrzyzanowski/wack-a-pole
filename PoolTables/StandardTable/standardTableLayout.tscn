@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://eedlq3baw272"]
 
+[ext_resource type="PackedScene" uid="uid://bteccbh80vumk" path="res://Objects/CoreSystems/CoreSystems.tscn" id="1_3yjgh"]
 [ext_resource type="PackedScene" uid="uid://ds0r85vnk0kyh" path="res://PoolTables/StandardTable/standardTable.tscn" id="1_cssqi"]
 [ext_resource type="PackedScene" uid="uid://chd07nnfsh8pk" path="res://Objects/Ball/ball.tscn" id="3_5blwf"]
-[ext_resource type="PackedScene" uid="uid://bdeperccgie5c" path="res://Objects/PlayerManager/playerManager.tscn" id="4_6w7v6"]
-[ext_resource type="Script" path="res://Resources/PoolBall/poolBallRes.gd" id="4_qenbj"]
+[ext_resource type="Script" path="res://Resources/PoolBall/poolBall.gd" id="3_uigkq"]
 
 [sub_resource type="Shader" id="Shader_grhrk"]
 code = "shader_type canvas_item;
@@ -37,7 +37,7 @@ shader_parameter/shadow = null
 shader_parameter/accent = null
 
 [sub_resource type="Resource" id="Resource_5nfx6"]
-script = ExtResource("4_qenbj")
+script = ExtResource("3_uigkq")
 type = 0
 base = Color(0, 0, 0, 1)
 shadow = Color(0, 0, 0, 1)
@@ -75,7 +75,7 @@ shader_parameter/shadow = null
 shader_parameter/accent = null
 
 [sub_resource type="Resource" id="Resource_dg4om"]
-script = ExtResource("4_qenbj")
+script = ExtResource("3_uigkq")
 type = 2
 base = Color(0, 0, 0, 1)
 shadow = Color(0, 0, 0, 1)
@@ -113,7 +113,7 @@ shader_parameter/shadow = null
 shader_parameter/accent = null
 
 [sub_resource type="Resource" id="Resource_d8mp6"]
-script = ExtResource("4_qenbj")
+script = ExtResource("3_uigkq")
 type = 1
 base = Color(0, 0, 0, 1)
 shadow = Color(0, 0, 0, 1)
@@ -151,7 +151,7 @@ shader_parameter/shadow = null
 shader_parameter/accent = null
 
 [sub_resource type="Resource" id="Resource_i0wpp"]
-script = ExtResource("4_qenbj")
+script = ExtResource("3_uigkq")
 type = 3
 base = Color(0.627451, 0.419608, 0.776471, 1)
 shadow = Color(0.282353, 0.282353, 0.282353, 1)
@@ -159,11 +159,9 @@ accent = Color(1, 1, 1, 1)
 
 [node name="Root" type="Node2D"]
 
-[node name="PoolTable" parent="." instance=ExtResource("1_cssqi")]
-
 [node name="BallWhite" parent="." instance=ExtResource("3_5blwf")]
 material = SubResource("ShaderMaterial_2cww8")
-position = Vector2(-10.029, -48.783)
+position = Vector2(0, -35)
 ballData = SubResource("Resource_5nfx6")
 
 [node name="BallRed" parent="." instance=ExtResource("3_5blwf")]
@@ -173,7 +171,7 @@ ballData = SubResource("Resource_dg4om")
 
 [node name="BallYellow" parent="." instance=ExtResource("3_5blwf")]
 material = SubResource("ShaderMaterial_ng4qp")
-position = Vector2(7.109, -47.837)
+position = Vector2(0, -48)
 ballData = SubResource("Resource_d8mp6")
 
 [node name="BallCustom" parent="." instance=ExtResource("3_5blwf")]
@@ -181,7 +179,10 @@ material = SubResource("ShaderMaterial_1glmp")
 position = Vector2(49, 0)
 ballData = SubResource("Resource_i0wpp")
 
-[node name="PlayerManager" parent="." instance=ExtResource("4_6w7v6")]
+[node name="CoreSystems" parent="." instance=ExtResource("1_3yjgh")]
+z_index = 2
+
+[node name="PoolTable" parent="." instance=ExtResource("1_cssqi")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false

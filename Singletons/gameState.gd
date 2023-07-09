@@ -11,5 +11,5 @@ func areAllBallsSleeping():
 	for ball in balls:
 		if !ball.sleeping:
 			return false
-	emit_signal("onAllBallsSleeping")
+	onAllBallsSleeping.emit()
 	return true

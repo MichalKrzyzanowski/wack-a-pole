@@ -27,7 +27,7 @@ func _ready() -> void:
 turn off ball rotation without losing
 physics precision
 """
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	sprite.global_rotation = 0.0
 	
 """

@@ -60,7 +60,7 @@ func shoot(delta: float):
 		playerBall.applyForce(dir * dist * delta * forceScalar)
 		readyToShoot = false
 		timer.start()
-		emit_signal("onShoot")
+		onShoot.emit()
 
 """
 updates the guideline direction
