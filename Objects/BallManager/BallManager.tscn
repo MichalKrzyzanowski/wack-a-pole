@@ -1,6 +1,182 @@
-[gd_scene load_steps=2 format=3 uid="uid://l8sh5f6ra1a7"]
+[gd_scene load_steps=16 format=3 uid="uid://l8sh5f6ra1a7"]
 
 [ext_resource type="Script" path="res://Objects/BallManager/BallManager.gd" id="1_k50ir"]
+[ext_resource type="PackedScene" uid="uid://chd07nnfsh8pk" path="res://Objects/Ball/ball.tscn" id="2_dxyxd"]
+[ext_resource type="Script" path="res://Resources/PoolBall/poolBall.gd" id="3_nyde4"]
+
+[sub_resource type="Shader" id="Shader_grhrk"]
+code = "shader_type canvas_item;
+
+uniform vec4 oldBase : source_color;
+uniform vec4 oldShadow : source_color;
+uniform vec4 oldAccent : source_color;
+
+uniform vec4 base : source_color;
+uniform vec4 shadow : source_color;
+uniform vec4 accent : source_color;
+
+
+void fragment()
+{
+	vec4 color = texture(TEXTURE, UV);
+	
+	if (color == oldBase) COLOR = base;
+	else if (color == oldShadow) COLOR = shadow;
+	else if (color == oldAccent) COLOR = accent;
+	else COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_utksg"]
+shader = SubResource("Shader_grhrk")
+shader_parameter/oldBase = Color(1, 0, 0, 1)
+shader_parameter/oldShadow = Color(1, 1, 0, 1)
+shader_parameter/oldAccent = Color(1, 0, 1, 1)
+shader_parameter/base = Color(0, 0, 0, 1)
+shader_parameter/shadow = null
+shader_parameter/accent = null
+
+[sub_resource type="Resource" id="Resource_ed0gs"]
+script = ExtResource("3_nyde4")
+type = 0
+base = Color(0, 0, 0, 1)
+shadow = Color(0, 0, 0, 1)
+accent = Color(0, 0, 0, 1)
+
+[sub_resource type="Shader" id="Shader_erou5"]
+code = "shader_type canvas_item;
+
+uniform vec4 oldBase : source_color;
+uniform vec4 oldShadow : source_color;
+uniform vec4 oldAccent : source_color;
+
+uniform vec4 base : source_color;
+uniform vec4 shadow : source_color;
+uniform vec4 accent : source_color;
+
+
+void fragment()
+{
+	vec4 color = texture(TEXTURE, UV);
+	
+	if (color == oldBase) COLOR = base;
+	else if (color == oldShadow) COLOR = shadow;
+	else if (color == oldAccent) COLOR = accent;
+	else COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u34i3"]
+shader = SubResource("Shader_erou5")
+shader_parameter/oldBase = Color(1, 0, 0, 1)
+shader_parameter/oldShadow = Color(1, 1, 0, 1)
+shader_parameter/oldAccent = Color(1, 0, 1, 1)
+shader_parameter/base = Color(0, 0, 0, 1)
+shader_parameter/shadow = null
+shader_parameter/accent = null
+
+[sub_resource type="Resource" id="Resource_pawbw"]
+script = ExtResource("3_nyde4")
+type = 2
+base = Color(0, 0, 0, 1)
+shadow = Color(0, 0, 0, 1)
+accent = Color(0, 0, 0, 1)
+
+[sub_resource type="Shader" id="Shader_ddich"]
+code = "shader_type canvas_item;
+
+uniform vec4 oldBase : source_color;
+uniform vec4 oldShadow : source_color;
+uniform vec4 oldAccent : source_color;
+
+uniform vec4 base : source_color;
+uniform vec4 shadow : source_color;
+uniform vec4 accent : source_color;
+
+
+void fragment()
+{
+	vec4 color = texture(TEXTURE, UV);
+	
+	if (color == oldBase) COLOR = base;
+	else if (color == oldShadow) COLOR = shadow;
+	else if (color == oldAccent) COLOR = accent;
+	else COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_al6dl"]
+shader = SubResource("Shader_ddich")
+shader_parameter/oldBase = Color(1, 0, 0, 1)
+shader_parameter/oldShadow = Color(1, 1, 0, 1)
+shader_parameter/oldAccent = Color(1, 0, 1, 1)
+shader_parameter/base = Color(0, 0, 0, 1)
+shader_parameter/shadow = null
+shader_parameter/accent = null
+
+[sub_resource type="Resource" id="Resource_yxmo4"]
+script = ExtResource("3_nyde4")
+type = 1
+base = Color(0, 0, 0, 1)
+shadow = Color(0, 0, 0, 1)
+accent = Color(0, 0, 0, 1)
+
+[sub_resource type="Shader" id="Shader_qd45h"]
+code = "shader_type canvas_item;
+
+uniform vec4 oldBase : source_color;
+uniform vec4 oldShadow : source_color;
+uniform vec4 oldAccent : source_color;
+
+uniform vec4 base : source_color;
+uniform vec4 shadow : source_color;
+uniform vec4 accent : source_color;
+
+
+void fragment()
+{
+	vec4 color = texture(TEXTURE, UV);
+	
+	if (color == oldBase) COLOR = base;
+	else if (color == oldShadow) COLOR = shadow;
+	else if (color == oldAccent) COLOR = accent;
+	else COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e0ope"]
+shader = SubResource("Shader_qd45h")
+shader_parameter/oldBase = Color(1, 0, 0, 1)
+shader_parameter/oldShadow = Color(1, 1, 0, 1)
+shader_parameter/oldAccent = Color(1, 0, 1, 1)
+shader_parameter/base = Color(0, 0, 0, 1)
+shader_parameter/shadow = null
+shader_parameter/accent = null
+
+[sub_resource type="Resource" id="Resource_a6e5o"]
+script = ExtResource("3_nyde4")
+type = 3
+base = Color(0.627451, 0.419608, 0.776471, 1)
+shadow = Color(0.282353, 0.282353, 0.282353, 1)
+accent = Color(1, 1, 1, 1)
 
 [node name="BallManager" type="Node2D"]
 script = ExtResource("1_k50ir")
+
+[node name="BallSpawner" type="Node2D" parent="."]
+
+[node name="BallWhite" parent="BallSpawner" instance=ExtResource("2_dxyxd")]
+material = SubResource("ShaderMaterial_utksg")
+position = Vector2(0, -35)
+ballData = SubResource("Resource_ed0gs")
+
+[node name="BallRed" parent="BallSpawner" instance=ExtResource("2_dxyxd")]
+material = SubResource("ShaderMaterial_u34i3")
+position = Vector2(60, -6)
+ballData = SubResource("Resource_pawbw")
+
+[node name="BallYellow" parent="BallSpawner" instance=ExtResource("2_dxyxd")]
+material = SubResource("ShaderMaterial_al6dl")
+position = Vector2(0, -48)
+ballData = SubResource("Resource_yxmo4")
+
+[node name="BallCustom" parent="BallSpawner" instance=ExtResource("2_dxyxd")]
+material = SubResource("ShaderMaterial_e0ope")
+position = Vector2(49, 0)
+ballData = SubResource("Resource_a6e5o")

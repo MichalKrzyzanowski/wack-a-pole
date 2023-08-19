@@ -1,13 +1,18 @@
 extends Node2D
 
-var coreManager
+@onready var ballSpawner := $BallSpawner
+
+var coreSystems
 
 signal onBallPotted(ballData: PoolBall)
 
 func _ready() -> void:
 	onBallPotted.connect(Callable(self, "temp"))
-	coreManager = get_parent()
+	coreSystems = get_parent()
 
 
 func temp(ballData: PoolBall):
 	prints("ball potted:", ballData.type)
+
+func getBalls():
+	return ballSpawner.get_children()

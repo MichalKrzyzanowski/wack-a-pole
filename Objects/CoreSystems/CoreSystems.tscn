@@ -7,6 +7,6 @@
 [node name="CoreSystems" type="Node2D"]
 script = ExtResource("1_ue6iq")
 
-[node name="PlayerManager" parent="." instance=ExtResource("2_eam47")]
-
 [node name="BallManager" parent="." instance=ExtResource("3_y6lnx")]
+
+[node name="PlayerManager" parent="." instance=ExtResource("2_eam47")]

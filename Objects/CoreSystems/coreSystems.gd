@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var ballManager := $BallManager
 @onready var playerManager := $PlayerManager
+@onready var ballManager := $BallManager
 
 func _ready() -> void:
 	ballManager.onBallPotted.connect(Callable(playerManager, "actOnBallPot"))
@@ -13,5 +13,5 @@ func getPlayerManager():
 func getBallManager():
 	return ballManager
 
-func test(ballData: PoolBall):
-	print("hello")
+func getBalls():
+	return getBallManager().getBalls()

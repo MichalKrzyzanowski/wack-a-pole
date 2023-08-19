@@ -33,7 +33,7 @@ func _ready() -> void:
 	timer.wait_time = ballCheckInterval
 	
 	# setup ball outline
-	playerBall = get_node("/root/Root/BallWhite")
+	playerBall = get_node("/root/Root/CoreSystems/BallManager/BallSpawner/BallWhite")
 	assert(playerBall, "player has no assigned ball")
 	ballOutlineWidth = playerBall.collider.shape.radius
 	

@@ -8,6 +8,10 @@
 	* [x] should be created as a child of core systems
 	* [x] track if a ball is potted. player manager can use this to decide if the current player should get another turn
 	- [ ] handle ball spawning. a ball should respawn at it's original spawn location. if its not available, respawn at any free space on the white line of pool table
+- [ ] ball [extension]
+	- [ ] spawn position data
+	- [ ] respawn feature, should respawn after it was potted if it can (special balls are killed on pot)
+		- [ ] should be managed by the ball manager
 - [ ] HUD [feature]
 	- [ ] player score/hp display, two options:
 		- [ ] list with score/hp bar with player name placed on the top. list is sorted by highest score/hp and can be placed in any of the four corners of the screen

@@ -7,11 +7,12 @@ extends Node2D
 @onready var player := $Player
 
 var currentPlayer := 0
-var coreManager
+var coreSystems
 var switchPlayer := false
 
 func _ready() -> void:
-	coreManager = get_parent()
+	coreSystems = get_parent()
+	print(coreSystems.ballManager)
 	GameState.onAllBallsSleeping.connect(Callable(self, "updatePlayer").bind(true))
 	player.onShoot.connect(Callable(self, "updatePlayerLabel").bind(false))
 	updatePlayerLabel()
